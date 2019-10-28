@@ -1,0 +1,120 @@
+#task1 make rarebirds dictionary
+rarebirds = {
+    'Gold-Crested Toucan': {
+        'Height (m)': 1.1,
+        'Weight (kg)': 35,
+        'Color': 'Gold',
+        'Endangered': True,
+        'Aggressive': True},
+    
+'Pearlescent Kingfisher': {
+        'Height (m)': 0.25,
+        'Weight (kg)': 0.5,
+        'Color': 'White',
+        'Endangered': False,
+        'Aggressive': False},
+
+'Four-Metre Hummingbird': {
+        'Height (m)': 0.6,
+        'Weight (kg)': 0.5,
+        'Color': 'Blue',
+        'Endangered': True,
+        'Aggressive': False},
+    
+'Giant Eagle': {
+        'Height (m)': 1.5,
+        'Weight (kg)': 53,
+        'Color': 'Black and White',
+        'Endangered': True,
+        'Aggressive': True},
+    
+'Ancient Vulture': {
+        'Height (m)': 2.1,
+        'Weight (kg)': 70,
+        'Color': 'Brown',
+        'Endangered': False,
+        'Aggressive': False}
+ }
+
+#task2 create birdlocation dictionary
+birdlocation = ['In the canopy directly above our heads.',
+                'Between my 6 and 9 o’clock above.',
+                'Between my 9 and 12 o’clock above.',
+                'Between my 12 and 3 o’clock above.',
+                'Between my 3 and 6 o’clock above.'
+                'In a nest on the ground.',
+                'Right behind you.']
+
+#task3 create binary code, bird location dictionary
+codes = {'111': 'In the canopy directly above our heads.',
+         '110': 'Between my 6 and 9 o’clock above.',
+         '101': 'Between my 9 and 12 o’clock above.',
+         '100': 'Between my 12 and 3 o’clock above.',
+         '011': 'Between my 3 and 6 o’clock above.',
+         '010': 'In a nest on the ground.',
+         '001': 'Right behind you.'}
+
+#task4 create list of actions
+actions = ['Back Away', 'Cover our Heads', 'Take a Photograph']
+
+#task 6 description of what to do depending on the bird we come across
+print("Here's how to handle the birds: ")
+for key, value, in rarebirds.items():
+    if value['Aggressive'] == True & value['Endangered'] == True: 
+        print(key + ": " + actions[1] + " & " + actions[0])
+    elif value['Aggressive'] == True: 
+        print(key + ": " + actions[1])
+    elif value['Endangered'] == True: 
+        print(key + ": " + actions[0])
+    else:
+        print(key + ": " + actions[2])
+print()
+        
+#task 7 print binary code dictionary
+print("Bird Locations:")
+for key, value in codes.items():
+    print(key + ": " + value)
+print()
+
+#task8 add an extra bird attribute to rarebirds dictionary called "seen" 
+for value in rarebirds.values():
+    value['Seen'] = False
+
+#task9 make new encounter variable
+encounter = True
+
+#task10 take user input
+sighting = input("Hi! What do you see? ").title()
+
+#task11 make a list of rarebirdslist
+rarebirdsList = list(rarebirds.keys())
+print(rarebirdsList)
+
+#task12 check if sighting is on rare bird list
+if sighting in rarebirdsList:
+    print("This is one of the birds we're looking for. ")
+else: 
+    print("That is not one of the birds we're looking for.")
+    
+    
+#task13 take additional user input to determine bird location
+
+code = input("Where do you see it? Input the correct code. ")
+
+#task14 grab location from entered code
+location = codes[code]
+
+#task15 print summary of user input
+print("\nSpotted: ", sighting, "\nLocation: ", location)
+
+#task16 prints out what to do with sighting
+
+if rarebirds[sighting].get('Aggressive') == True:
+    print(sighting, "is agressive: ", actions[1], "&", actions[0])
+    print("We should still photograph it at its location.")
+elif value['Endangered'] == True: 
+    print(key + ": " + actions[0])
+    print("We should still photograph it at its location.")
+else:
+    print(actions[2])
+        
